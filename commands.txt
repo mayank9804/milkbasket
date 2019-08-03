@@ -1,0 +1,3 @@
+docker build -t 981467/milkbasket:product-qa ./
+docker push 981467/milkbasket:product-qa
+helm install -n product-qa --values helm-charts/values.yaml --tiller-namespace --namespace minikube-qa ./

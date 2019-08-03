@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+
+kind: Deployment
+
+metadata:
+  name: {{ .Values.Depname }}
+  namespace: {{ .Values.Namespace }}
+
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.Appname }}
+
+  strategy:
+    type: {{ .Values.strategy.type }}
+    rollingUpdate:
+      maxSurge: {{ .Values.strategy.rollingUpdate.maxSurge }}
+      maxUnavailable: {{ .Values.strategy.rollingUpdate.maxUnavailable }}
+  minReadySeconds: {{ .Values.minReadySeconds }} 
+
+  template:
+    metadata:
+      labels:
+        app : {{ .Values.Appname }}
+
+    spec:
+      containers:
+        - name: {{ .Values.Appname }}
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.internalPort }}

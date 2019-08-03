@@ -1,0 +1,18 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .Values.Ingname }}
+  namespace: {{ .Values.Namespace }}
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: public-nginx
+spec:
+  rules:
+    - host: milkbasket-demo.minikube.com
+      http:
+        paths:
+          - path: /api/
+            backend:
+              serviceName: milkbasket-svc-qa
+              servicePort: 80
+

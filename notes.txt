@@ -1,0 +1,6 @@
+1. Don't let your customer go!
+2. Identify customers purchasing items at regular interval
+3. Offer them subscription at some discount for a fixed number of time
+4. The discount can be calculated on the basis of TRUST INDEX
+5. TRUST INDEX depends on quantity and frequency of items bought considering time interval
+

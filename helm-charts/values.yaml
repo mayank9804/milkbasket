@@ -1,0 +1,43 @@
+
+# Names of files and applications
+#DEPLOYMENT NAME
+Depname: milkbasket-dep-qa
+#APPLICATION NAME (CONTAINER NAME)
+Appname: milkbasket-qa
+#SERVICE NAME
+Svcname: milkbasket-svc-qa
+#INGRESS NAME
+Ingname: milkbasket-ing-qa
+#NAMESPACE NAME
+Namespace: minikube-qa
+
+#Environment variable values
+
+global:
+  host: milkbasket-demo.minikube.com
+  buildType: qa
+  
+replicaCount: 1
+
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 1
+
+minReadySeconds: 5
+
+image:
+  repository: 981467/milkbasket
+  tag: product-qa
+  pullPolicy: Always
+
+service:
+  name: milkbasket-svc-qa
+  externalPort: 80
+  internalPort: 3000
+
+ingress:
+  enabled: true
+
+
