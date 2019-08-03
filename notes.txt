@@ -4,3 +4,5 @@
 4. The discount can be calculated on the basis of TRUST INDEX
 5. TRUST INDEX depends on quantity and frequency of items bought considering time interval
 
+revenue/no of orders
+market basket analysis
