@@ -3,7 +3,7 @@ import json
 
 
 import pandas as pd
-df2 = pd.read_csv('/home/mayank.sharma/Desktop/blume/queries/datasets/milkbasket_hackathon_sample_data.csv')
+df2 = pd.read_csv('./datasets/milkbasket_hackathon_sample_data.csv')
 cust_id = df2['customer_id'].tolist()
 
 data = {}
